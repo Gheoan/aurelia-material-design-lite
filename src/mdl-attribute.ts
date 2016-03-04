@@ -6,10 +6,13 @@ import { TaskQueue } from 'aurelia-task-queue';
 @customAttribute('mdl')
 @inject(DOM.Element, TaskQueue)
 export class MDLComponent {
-  constructor(private element: Element, private taskQueue: TaskQueue) { }
+  private componentHandler;
+  constructor(private element: Element, private taskQueue: TaskQueue) {
+    this.componentHandler = PLATFORM.global.componentHandler;
+  }
 
   attached() {
-    const componentHandler = PLATFORM.global.componentHandler;
+    const componentHandler = this.componentHandler;
     if (componentHandler) {
       this.taskQueue.queueMicroTask(() => {
         componentHandler.upgradeElement(this.element);
@@ -20,7 +23,7 @@ export class MDLComponent {
   }
 
   detached() {
-    const componentHandler = PLATFORM.global.componentHandler;
+    const componentHandler = this.componentHandler;
     if (componentHandler) {
       this.taskQueue.queueMicroTask(() => {
         componentHandler.downgradeElements(this.element);

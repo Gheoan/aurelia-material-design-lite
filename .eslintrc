@@ -1,6 +1,6 @@
 {
-  "extends": "./node_modules/aurelia-tools/.eslintrc",
+  "parser": "typescript-eslint-parser",
   "rules": {
-    "no-alert": 0,
+    "comma-dangle": 2
   }
 }
