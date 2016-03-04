@@ -9,6 +9,7 @@ System.config({
   map: {
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.1.1.4",
     "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
+    "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.1.1.1",
     "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.2",
     "npm:aurelia-binding@1.0.0-beta.1.2.2": {
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1.1.6",
