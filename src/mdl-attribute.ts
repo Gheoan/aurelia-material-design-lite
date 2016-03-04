@@ -6,10 +6,7 @@ import { TaskQueue } from 'aurelia-task-queue';
 @customAttribute('mdl')
 @inject(DOM.Element, TaskQueue)
 export class MDLComponent {
-  constructor(element: Element, taskQueue: TaskQueue) {
-    this.element = element;
-    this.taskQueue = taskQueue;
-  }
+  constructor(private element: Element, private taskQueue: TaskQueue) {  }
 
   attached() {
     const componentHandler = PLATFORM.global.componentHandler;
