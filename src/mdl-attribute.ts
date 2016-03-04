@@ -7,29 +7,23 @@ import { TaskQueue } from 'aurelia-task-queue';
 @inject(DOM.Element, TaskQueue)
 export class MDLComponent {
   private componentHandler;
+
   constructor(private element: Element, private taskQueue: TaskQueue) {
     this.componentHandler = PLATFORM.global.componentHandler;
+    if (!this.componentHandler) {
+      throw new Error(`Material Design Lite component handler not found. Make sure Material Design Lite is imported.`);
+    }
   }
 
   attached() {
-    const componentHandler = this.componentHandler;
-    if (componentHandler) {
-      this.taskQueue.queueMicroTask(() => {
-        componentHandler.upgradeElement(this.element);
-      });
-    } else {
-      throw new Error(`Material Design Lite component handler not found. Make sure it's imported.`);
-    }
+    this.taskQueue.queueMicroTask(() => {
+      this.componentHandler.upgradeElement(this.element);
+    });
   }
 
   detached() {
-    const componentHandler = this.componentHandler;
-    if (componentHandler) {
-      this.taskQueue.queueMicroTask(() => {
-        componentHandler.downgradeElements(this.element);
-      });
-    } else {
-      throw new Error(`Material Design Lite component handler not found. Make sure it's imported.`);
-    }
+    this.taskQueue.queueMicroTask(() => {
+      this.componentHandler.downgradeElements(this.element);
+    });
   }
 }
