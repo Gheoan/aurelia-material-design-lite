@@ -6,14 +6,12 @@ import { TaskQueue } from 'aurelia-task-queue';
 @customAttribute('mdl')
 @inject(DOM.Element, TaskQueue)
 export class MDLComponent {
-  private componentHandler;
+  private componentHandler = PLATFORM.global.componentHandler;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
-    const componentHandler = PLATFORM.global.componentHandler;
-    if (!componentHandler) {
+    if (!this.componentHandler) {
       throw new Error(`Material Design Lite component handler not found. Make sure Material Design Lite is imported.`);
     }
-    this.componentHandler = componentHandler;
   }
 
   attached() {
