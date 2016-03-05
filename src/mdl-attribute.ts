@@ -9,10 +9,11 @@ export class MDLComponent {
   private componentHandler;
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
-    this.componentHandler = PLATFORM.global.componentHandler;
-    if (!this.componentHandler) {
+    const componentHandler = PLATFORM.global.componentHandler;
+    if (!componentHandler) {
       throw new Error(`Material Design Lite component handler not found. Make sure Material Design Lite is imported.`);
     }
+    this.componentHandler = componentHandler;
   }
 
   attached() {
