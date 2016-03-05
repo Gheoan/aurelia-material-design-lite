@@ -1,6 +1,51 @@
 {
+  "root": true,
   "parser": "typescript-eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "aurelia"
+  ],
+  "extends": "airbnb/base",
   "rules": {
-    "comma-dangle": 2
+    "aurelia/inject-type": [
+      2,
+      "decorator"
+    ],
+    "aurelia/inject-matches-ctor": 2,
+    "aurelia/no-conventions": 2,
+    "aurelia/no-console-log": 2,
+    "aurelia/store-unsubscribe": [
+      2,
+      {
+        "setTimeout": true,
+        "setInterval": true,
+        "subscribe": true
+      }
+    ],
+    "aurelia/sort-class-members": [
+      2,
+      {
+        "order": [
+          {
+            "name": "metadata",
+            "type": "method",
+            "static": true
+          },
+          "[static-properties]",
+          "[static-methods]",
+          "[properties]",
+          {
+            "name": "inject",
+            "static": true
+          },
+          "constructor",
+          "[lifecycle]",
+          "[everything-else]"
+        ]
+      }
+    ]
   }
 }
