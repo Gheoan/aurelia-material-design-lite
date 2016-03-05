@@ -4,7 +4,7 @@ System.register([], function (_export) {
     _export('configure', configure);
 
     function configure(config) {
-        config.globalResources('./mdl-attribute');
+        config.globalResources('./Attribute');
     }
 
     return {

@@ -1,19 +1,16 @@
-System.register(["aurelia-templating", "aurelia-dependency-injection", "aurelia-pal", "aurelia-task-queue"], function (_export) {
+System.register(["aurelia-dependency-injection", "aurelia-pal", "aurelia-task-queue"], function (_export) {
     "use strict";
 
-    var customAttribute, inject, DOM, PLATFORM, TaskQueue, __decorate, MDLComponent;
+    var inject, PLATFORM, TaskQueue, __decorate, ComponentHandler;
 
     var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
     function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
     return {
-        setters: [function (_aureliaTemplating) {
-            customAttribute = _aureliaTemplating.customAttribute;
-        }, function (_aureliaDependencyInjection) {
+        setters: [function (_aureliaDependencyInjection) {
             inject = _aureliaDependencyInjection.inject;
         }, function (_aureliaPal) {
-            DOM = _aureliaPal.DOM;
             PLATFORM = _aureliaPal.PLATFORM;
         }, function (_aureliaTaskQueue) {
             TaskQueue = _aureliaTaskQueue.TaskQueue;
@@ -27,11 +24,10 @@ System.register(["aurelia-templating", "aurelia-dependency-injection", "aurelia-
                 return c > 3 && r && Object.defineProperty(target, key, r), r;
             };
 
-            MDLComponent = (function () {
-                function MDLComponent(element, taskQueue) {
-                    _classCallCheck(this, MDLComponent);
+            ComponentHandler = (function () {
+                function ComponentHandler(taskQueue) {
+                    _classCallCheck(this, ComponentHandler);
 
-                    this.element = element;
                     this.taskQueue = taskQueue;
                     this.componentHandler = PLATFORM.global.componentHandler;
                     if (!this.componentHandler) {
@@ -39,32 +35,32 @@ System.register(["aurelia-templating", "aurelia-dependency-injection", "aurelia-
                     }
                 }
 
-                _createClass(MDLComponent, [{
-                    key: "attached",
-                    value: function attached() {
+                _createClass(ComponentHandler, [{
+                    key: "upgrade",
+                    value: function upgrade(element) {
                         var _this = this;
 
                         this.taskQueue.queueMicroTask(function () {
-                            _this.componentHandler.upgradeElement(_this.element);
+                            _this.componentHandler.upgradeElement(element);
                         });
                     }
                 }, {
-                    key: "detached",
-                    value: function detached() {
+                    key: "downgrade",
+                    value: function downgrade(element) {
                         var _this2 = this;
 
                         this.taskQueue.queueMicroTask(function () {
-                            _this2.componentHandler.downgradeElements(_this2.element);
+                            _this2.componentHandler.downgradeElements(element);
                         });
                     }
                 }]);
 
-                return MDLComponent;
+                return ComponentHandler;
             })();
 
-            _export("MDLComponent", MDLComponent);
+            _export("ComponentHandler", ComponentHandler);
 
-            _export("MDLComponent", MDLComponent = __decorate([customAttribute('mdl'), inject(DOM.Element, TaskQueue)], MDLComponent));
+            _export("ComponentHandler", ComponentHandler = __decorate([inject(TaskQueue)], ComponentHandler));
         }
     };
 });

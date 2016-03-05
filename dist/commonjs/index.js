@@ -6,5 +6,5 @@ Object.defineProperty(exports, '__esModule', {
 exports.configure = configure;
 
 function configure(config) {
-    config.globalResources('./mdl-attribute');
+    config.globalResources('./Attribute');
 }

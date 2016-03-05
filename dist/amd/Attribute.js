@@ -1,4 +1,4 @@
-define(["exports", "aurelia-templating", "aurelia-dependency-injection", "aurelia-pal", "aurelia-task-queue"], function (exports, _aureliaTemplating, _aureliaDependencyInjection, _aureliaPal, _aureliaTaskQueue) {
+define(["exports", "aurelia-templating", "aurelia-dependency-injection", "aurelia-pal", "./ComponentHandler"], function (exports, _aureliaTemplating, _aureliaDependencyInjection, _aureliaPal, _ComponentHandler) {
     "use strict";
 
     Object.defineProperty(exports, "__esModule", {
@@ -16,40 +16,28 @@ define(["exports", "aurelia-templating", "aurelia-dependency-injection", "aureli
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var MDLComponent = (function () {
-        function MDLComponent(element, taskQueue) {
-            _classCallCheck(this, MDLComponent);
+    var Attribute = (function () {
+        function Attribute(element, componentHandler) {
+            _classCallCheck(this, Attribute);
 
             this.element = element;
-            this.taskQueue = taskQueue;
-            this.componentHandler = _aureliaPal.PLATFORM.global.componentHandler;
-            if (!this.componentHandler) {
-                throw new Error("Material Design Lite component handler not found. Make sure it's imported.");
-            }
+            this.componentHandler = componentHandler;
         }
 
-        _createClass(MDLComponent, [{
+        _createClass(Attribute, [{
             key: "attached",
             value: function attached() {
-                var _this = this;
-
-                this.taskQueue.queueMicroTask(function () {
-                    _this.componentHandler.upgradeElement(_this.element);
-                });
+                this.componentHandler.upgrade(this.element);
             }
         }, {
             key: "detached",
             value: function detached() {
-                var _this2 = this;
-
-                this.taskQueue.queueMicroTask(function () {
-                    _this2.componentHandler.downgradeElements(_this2.element);
-                });
+                this.componentHandler.downgrade(this.element);
             }
         }]);
 
-        return MDLComponent;
+        return Attribute;
     })();
-    exports.MDLComponent = MDLComponent;
-    exports.MDLComponent = MDLComponent = __decorate([(0, _aureliaTemplating.customAttribute)('mdl'), (0, _aureliaDependencyInjection.inject)(_aureliaPal.DOM.Element, _aureliaTaskQueue.TaskQueue)], MDLComponent);
+    exports.Attribute = Attribute;
+    exports.Attribute = Attribute = __decorate([(0, _aureliaTemplating.customAttribute)('mdl'), (0, _aureliaDependencyInjection.inject)(_aureliaPal.DOM.Element, _ComponentHandler.ComponentHandler)], Attribute);
 });

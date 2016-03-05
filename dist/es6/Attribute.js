@@ -6,29 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { customAttribute } from 'aurelia-templating';
 import { inject } from 'aurelia-dependency-injection';
-import { DOM, PLATFORM } from 'aurelia-pal';
-import { TaskQueue } from 'aurelia-task-queue';
-export let MDLComponent = class MDLComponent {
-    constructor(element, taskQueue) {
+import { DOM } from 'aurelia-pal';
+import { ComponentHandler } from './ComponentHandler';
+export let Attribute = class Attribute {
+    constructor(element, componentHandler) {
         this.element = element;
-        this.taskQueue = taskQueue;
-        this.componentHandler = PLATFORM.global.componentHandler;
-        if (!this.componentHandler) {
-            throw new Error("Material Design Lite component handler not found. Make sure it's imported.");
-        }
+        this.componentHandler = componentHandler;
     }
     attached() {
-        this.taskQueue.queueMicroTask(() => {
-            this.componentHandler.upgradeElement(this.element);
-        });
+        this.componentHandler.upgrade(this.element);
     }
     detached() {
-        this.taskQueue.queueMicroTask(() => {
-            this.componentHandler.downgradeElements(this.element);
-        });
+        this.componentHandler.downgrade(this.element);
     }
 };
-MDLComponent = __decorate([
+Attribute = __decorate([
     customAttribute('mdl'),
-    inject(DOM.Element, TaskQueue)
-], MDLComponent);
+    inject(DOM.Element, ComponentHandler)
+], Attribute);

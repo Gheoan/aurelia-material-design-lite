@@ -7,6 +7,6 @@ define(['exports'], function (exports) {
     exports.configure = configure;
 
     function configure(config) {
-        config.globalResources('./mdl-attribute');
+        config.globalResources('./Attribute');
     }
 });
