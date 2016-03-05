@@ -10,7 +10,7 @@ export class MDLComponent {
 
   constructor(private element: Element, private taskQueue: TaskQueue) {
     if (!this.componentHandler) {
-      throw new Error(`Material Design Lite component handler not found. Make sure Material Design Lite is imported.`);
+      throw new Error("Material Design Lite component handler not found. Make sure it's imported.");
     }
   }
 
