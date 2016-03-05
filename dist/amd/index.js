@@ -1,12 +1,12 @@
 define(['exports'], function (exports) {
-  'use strict';
+    'use strict';
 
-  Object.defineProperty(exports, '__esModule', {
-    value: true
-  });
-  exports.configure = configure;
+    Object.defineProperty(exports, '__esModule', {
+        value: true
+    });
+    exports.configure = configure;
 
-  function configure(config) {
-    config.globalResources('./mdl');
-  }
+    function configure(config) {
+        config.globalResources('./mdl-attribute');
+    }
 });

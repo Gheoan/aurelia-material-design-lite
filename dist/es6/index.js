@@ -1,3 +1,3 @@
 export function configure(config) {
-  config.globalResources('./mdl');
+    config.globalResources('./mdl-attribute');
 }

@@ -1,14 +1,14 @@
 System.register([], function (_export) {
-  'use strict';
+    'use strict';
 
-  _export('configure', configure);
+    _export('configure', configure);
 
-  function configure(config) {
-    config.globalResources('./mdl');
-  }
+    function configure(config) {
+        config.globalResources('./mdl-attribute');
+    }
 
-  return {
-    setters: [],
-    execute: function () {}
-  };
+    return {
+        setters: [],
+        execute: function () {}
+    };
 });

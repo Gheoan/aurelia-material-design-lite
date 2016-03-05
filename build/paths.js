@@ -4,7 +4,10 @@ var appRoot = 'src/';
 
 module.exports = {
   root: appRoot,
-  source: appRoot + '**/*.js',
+  source: [
+    appRoot + '**/*.ts',
+    'jspm_packages/**/*.d.ts',
+  ],
   html: appRoot + '**/*.html',
   style: 'styles/**/*.css',
   output: 'dist/',
