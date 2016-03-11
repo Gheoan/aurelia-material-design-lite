@@ -3,8 +3,8 @@
     "target": "es2015",
     "experimentalDecorators": true
   },
-  "files": [
-    "src/index.js",
-    "src/hello-word.js"
+  "exclude": [
+    "dist",
+    "node_modules"
   ]
 }
