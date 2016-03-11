@@ -22,6 +22,10 @@
     "aurelia-tools": "^0.1.18",
     "conventional-changelog": "0.0.11",
     "del": "^1.1.0",
+    "eslint": "^2.3.0",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-aurelia": "^1.0.0",
+    "gheoan-eslintrc": "^1.0.2",
     "gulp": "^3.8.10",
     "gulp-babel": "^5.1.0",
     "gulp-bump": "^0.3.1",
@@ -54,7 +58,7 @@
       "dist": "dist/amd"
     },
     "peerDependencies": {
-      
+
     },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0-beta.1.0.6"
