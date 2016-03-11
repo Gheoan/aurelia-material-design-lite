@@ -1,5 +1,8 @@
 {
   "name": "aurelia-skeleton-plugin",
   "version": false,
-  "dependencies": {}
+  "dependencies": {},
+  "ambientDependencies": {
+    "tether": "registry:dt/tether#1.1.0+20160127235339"
+  }
 }
