@@ -41,7 +41,7 @@ export class TooltipService {
     this._model = model;
 
     invokeLifecycle(viewModel, 'canActivate', model)
-      .then(canActivate => {
+      .then((canActivate: boolean) => {
         if (canActivate) {
           this._compositionEngine.createController(instructions)
             .then(controller => {
@@ -56,7 +56,7 @@ export class TooltipService {
 
   hide() {
     invokeLifecycle(this._viewModel, 'canDeactivate', this._model)
-      .then(canDeactivate => {
+      .then((canDeactivate: boolean) => {
         if (canDeactivate) {
           this._renderer.hide();
         }
