@@ -58,9 +58,10 @@
       "dist": "dist/amd"
     },
     "peerDependencies": {
-
+      
     },
     "devDependencies": {
+      "aurelia-framework": "^1.0.0-beta.1.1.4",
       "aurelia-polyfills": "^1.0.0-beta.1.0.6"
     }
   }
