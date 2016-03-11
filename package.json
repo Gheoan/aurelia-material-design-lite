@@ -1,6 +1,6 @@
 {
   "name": "aurelia-tooltip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "devDependencies": {
     "aurelia-tools": "^0.1.18",
     "conventional-changelog": "0.0.11",
