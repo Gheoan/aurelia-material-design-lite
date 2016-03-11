@@ -26,7 +26,7 @@ export class TooltipService {
   _model: any;
   _controller: Controller;
 
-  async show(settings: TooltipSettings) {
+  show(settings: TooltipSettings) {
     const { _container: container } = this;
     const { target, model, viewModel: tempViewModel } = settings;
     const viewModel = Origin.get(tempViewModel).moduleId;
@@ -40,20 +40,26 @@ export class TooltipService {
     this._viewModel = viewModel;
     this._model = model;
 
-    const canActivate = await invokeLifecycle(viewModel, 'canActivate', model);
-    if (canActivate) {
-      const controller = await this._compositionEngine.createController(instructions);
-      controller.automate();
-      this._controller = controller;
+    invokeLifecycle(viewModel, 'canActivate', model)
+      .then(canActivate => {
+        if (canActivate) {
+          this._compositionEngine.createController(instructions)
+            .then(controller => {
+              controller.automate();
+              this._controller = controller;
 
-      this._renderer.show(controller.view, target);
-    }
+              this._renderer.show(controller.view, target);
+            });
+        }
+      });
   }
 
-  async hide() {
-    const canDeactivate = await invokeLifecycle(this._viewModel, 'canDeactivate', this._model);
-    if (canDeactivate) {
-      this._renderer.hide();
-    }
+  hide() {
+    invokeLifecycle(this._viewModel, 'canDeactivate', this._model)
+      .then(canDeactivate => {
+        if (canDeactivate) {
+          this._renderer.hide();
+        }
+      });
   }
 }
