@@ -1,11 +1,46 @@
-# aurelia-skeleton-plugin
+# aurelia-material-design-lite
 
-[![ZenHub](https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png)](https://zenhub.io)
-[![Join the chat at https://gitter.im/aurelia/discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+A [Material Design Lite](https://github.com/google/material-design-lite) plugin for [Aurelia](https://github.com/aurelia/framework).
 
-This skeleton is part of the [Aurelia](http://www.aurelia.io/) platform. It sets up a standard aurelia plugin using gulp to build your ES6 code with the Babel compiler. Karma/Jasmine testing is also configured.
+## Getting Started
 
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to [join us on Gitter](https://gitter.im/aurelia/discuss). If you would like to have deeper insight into our development process, please install the [ZenHub](https://zenhub.io) Chrome Extension and visit any of our repository's boards. You can get an overview of all Aurelia work by visiting [the framework board](https://github.com/aurelia/framework#boards).
+1. Install Material Design Lite and the plugin.
+
+  ```shell
+  jspm install material-design-lite aurelia-material-design-lite
+  ```
+Learn more: http://jspm.io/docs/installing-packages.html
+2. Import the plugin
+
+  ```javascript
+  // main.js
+  export function configure(aurelia) {
+    aurelia.use
+      .standardConfiguration()
+      .developmentLogging()
+      .plugin('aurelia-material-design-lite'); // Add this line
+
+    aurelia.start().then(() => aurelia.setRoot());
+  }
+  ```
+Learn more: http://aurelia.io/docs#/aurelia/framework/latest/doc/article/app-configuration-and-startup/7
+3. Import Material Design Lite
+
+  ```html
+  <!-- app.html -->
+  <require from="material-design-lite"></require>
+  <require from="material-design-lite/material.css"></require>
+  ```
+Learn more: http://aurelia.io/docs#/aurelia/framework/latest/doc/article/cheat-sheet/4
+4. Add the `mdl` attribute to all Material Design Lite components
+
+  ```html
+  <!-- Note the mdl attribute -->
+  <button mdl class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Button
+  </button>
+  ```
+The `mdl` attribute must be on the same element that has the `mdl-component` class (`mdl-button`, `mdl-card`, `mdl-dialog`, etc.).<br>Learn more: https://www.getmdl.io/started/index.html#use-components.
 
 ## Building The Code
 
