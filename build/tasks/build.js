@@ -48,10 +48,19 @@ gulp.task('build-system', ['build-html-system'], function () {
     .pipe(gulp.dest(paths.output + 'system'));
 });
 
+gulp.task('build-css', function() {
+  return gulp.src(paths.css)
+    .pipe(gulp.dest(paths.output + 'es6'))
+    .pipe(gulp.dest(paths.output + 'commonjs'))
+    .pipe(gulp.dest(paths.output + 'amd'))
+    .pipe(gulp.dest(paths.output + 'system'))
+    ;
+});
+
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-es6', 'build-commonjs', 'build-amd', 'build-system'],
+    ['build-css', 'build-es6', 'build-commonjs', 'build-amd', 'build-system'],
     callback
   );
 });
