@@ -1,6 +1,6 @@
 {
-  "name": "aurelia-*",
-  "version": "1.0.0",
+  "name": "aurelia-material-design-lite",
+  "version": "1.0.6",
   "devDependencies": {
     "aurelia-tools": "^0.1.18",
     "conventional-changelog": "0.0.11",
@@ -42,7 +42,13 @@
       "dist": "dist/amd"
     },
     "peerDependencies": {
-
+      
+    },
+    "dependencies": {
+      "aurelia-dependency-injection": "^1.0.0-beta.1.1.5",
+      "aurelia-pal": "^1.0.0-beta.1.1.1",
+      "aurelia-task-queue": "^1.0.0-beta.1.1.1",
+      "aurelia-templating": "^1.0.0-beta.1.1.4"
     },
     "devDependencies": {
       "aurelia-framework": "^1.0.0-beta.1.1.4",
