@@ -1,0 +1,10 @@
+<template>
+  <require from="./InputSwitch.css"></require>
+
+  <label>
+    <input type="radio" name="InputSwitch" model.bind="true" checked.bind="hasPointer">Mouse, Touchpad, Trackball, etc.
+  </label>
+  <label>
+    <input type="radio" name="InputSwitch" model.bind="false" checked.bind="hasPointer">Touchscreen, Stylus, etc.
+  </label>
+</template>

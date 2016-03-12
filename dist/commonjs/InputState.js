@@ -6,8 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var HelloWorld = function HelloWorld() {
-  _classCallCheck(this, HelloWorld);
+var InputState = function InputState() {
+  _classCallCheck(this, InputState);
+
+  this.hasPointer = null;
 };
 
-exports.HelloWorld = HelloWorld;
+exports.InputState = InputState;
