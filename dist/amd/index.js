@@ -1,4 +1,4 @@
-define(['exports'], function (exports) {
+define(['exports', 'aurelia-framework'], function (exports, _aureliaFramework) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -7,6 +7,6 @@ define(['exports'], function (exports) {
   exports.configure = configure;
 
   function configure(config) {
-    config.globalResources('./hello-world');
+    config.globalResources('./Attribute');
   }
 });

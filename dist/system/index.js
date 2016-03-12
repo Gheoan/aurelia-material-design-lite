@@ -1,14 +1,18 @@
-System.register([], function (_export) {
+System.register(['aurelia-framework'], function (_export) {
   'use strict';
+
+  var FrameworkConfiguration;
 
   _export('configure', configure);
 
   function configure(config) {
-    config.globalResources('./hello-world');
+    config.globalResources('./Attribute');
   }
 
   return {
-    setters: [],
+    setters: [function (_aureliaFramework) {
+      FrameworkConfiguration = _aureliaFramework.FrameworkConfiguration;
+    }],
     execute: function () {}
   };
 });

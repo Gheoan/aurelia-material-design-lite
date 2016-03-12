@@ -1,6 +1,6 @@
 {
   "name": "aurelia-material-design-lite",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "devDependencies": {
     "aurelia-tools": "^0.1.18",
     "conventional-changelog": "0.0.11",
@@ -41,9 +41,7 @@
     "directories": {
       "dist": "dist/amd"
     },
-    "peerDependencies": {
-      
-    },
+    "peerDependencies": {},
     "dependencies": {
       "aurelia-dependency-injection": "^1.0.0-beta.1.1.5",
       "aurelia-pal": "^1.0.0-beta.1.1.1",
