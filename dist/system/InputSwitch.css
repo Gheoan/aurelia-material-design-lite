@@ -1,0 +1,7 @@
+input-switch {
+  margin: 1rem;
+}
+
+input-switch label {
+  display: block;
+}
