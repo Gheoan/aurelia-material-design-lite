@@ -4,13 +4,12 @@ A [Material Design Lite](https://github.com/google/material-design-lite) plugin 
 
 ## Getting Started
 
-1. Install Material Design Lite and the plugin.
+1. Install the plugin ([docs](http://jspm.io/docs/installing-packages.html)):
 
   ```shell
-  jspm install material-design-lite aurelia-material-design-lite
+  jspm install aurelia-material-design-lite
   ```
-Learn more: http://jspm.io/docs/installing-packages.html
-2. Import the plugin
+2. Import the plugin ([docs](http://aurelia.io/docs#/aurelia/framework/latest/doc/article/app-configuration-and-startup/7)):
 
   ```javascript
   // main.js
@@ -18,29 +17,47 @@ Learn more: http://jspm.io/docs/installing-packages.html
     aurelia.use
       .standardConfiguration()
       .developmentLogging()
-      .plugin('aurelia-material-design-lite'); // Add this line
+      .plugin('aurelia-material-design-lite'); // add this line
 
     aurelia.start().then(() => aurelia.setRoot());
   }
   ```
-Learn more: http://aurelia.io/docs#/aurelia/framework/latest/doc/article/app-configuration-and-startup/7
-3. Import Material Design Lite
+3. Include Material Design Lite using **one** of the methods below:
+  - from CDN ([docs](https://getmdl.io/started/index.html#download)):
+  <br>Version `1.2.0` is just as example.
 
-  ```html
-  <!-- app.html -->
-  <require from="material-design-lite"></require>
-  <require from="material-design-lite/material.css"></require>
-  ```
-Learn more: http://aurelia.io/docs#/aurelia/framework/latest/doc/article/cheat-sheet/4
-4. Add the `mdl` attribute to all Material Design Lite components
+    ```html
+    <!-- index.html -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+    ```
+  - using Aurelia ([docs](http://aurelia.io/hub.html#/doc/article/aurelia/templating/latest/templating-basics/6))
 
-  ```html
-  <!-- Note the mdl attribute -->
-  <button mdl class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-    Button
-  </button>
-  ```
-The `mdl` attribute must be on the same element that has the `mdl-component` class (`mdl-button`, `mdl-card`, `mdl-dialog`, etc.).<br>Learn more: https://www.getmdl.io/started/index.html#use-components.
+    ```javascript
+    // main.js
+    import 'material-design-lite';
+    ```
+
+    ```html
+    <!-- app.html -->
+    <require from="material-design-lite/material.min.css"></require>
+    ```
+
+    ```html
+    <!-- index.html -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    ```
+
+## Using the plugin
+
+Add one `mdl` attribute to elements that have a `mdl-js-component` class (`mdl-js-button`, `mdl-js-layout`, `mdl-js-progress`, etc.):
+```html
+<button mdl class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Button
+</button>
+```
+The `mdl` attribute is not required for elements that do not have a `mdl-js-component` class.
 
 ## Building The Code
 
