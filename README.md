@@ -34,14 +34,10 @@ A [Material Design Lite](https://github.com/google/material-design-lite) plugin 
     ```
   - using Aurelia ([docs](http://aurelia.io/hub.html#/doc/article/aurelia/templating/latest/templating-basics/6))
 
-    ```javascript
-    // main.js
-    import 'material-design-lite';
-    ```
-
     ```html
     <!-- app.html -->
-    <require from="material-design-lite/material.min.css"></require>
+    <require from="material-design-lite/material.css"></require>
+    <require from="material-design-lite/material.js"></require>
     ```
 
     ```html
