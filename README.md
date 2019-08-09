@@ -2,6 +2,8 @@
 
 A [Material Design Lite](https://github.com/google/material-design-lite) plugin for [Aurelia](https://github.com/aurelia/framework).
 
+Status: abandoned.
+
 ## Getting Started
 
 1. Install the plugin ([docs](http://jspm.io/docs/installing-packages.html)):
