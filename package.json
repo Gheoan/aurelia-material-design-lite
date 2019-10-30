@@ -5,7 +5,7 @@
     "aurelia-tools": "^0.1.18",
     "conventional-changelog": "0.0.11",
     "del": "^1.1.0",
-    "eslint": "^2.3.0",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-aurelia": "^1.0.0",
     "gheoan-eslintrc": "^1.0.2",
